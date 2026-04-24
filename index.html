@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Options Terminal | Project Investment</title>
+  <title>AI Options Terminal | Hybrid Build Offer</title>
   <style>
     :root{
       --bg:#06101d; --panel:#0d1a2d; --panel2:#10203a; --text:#eaf2ff; --muted:#9db0cd;
-      --cyan:#39d5ff; --violet:#8b5cf6; --green:#27e39d; --yellow:#ffd166; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --cyan:#39d5ff; --violet:#8b5cf6; --green:#27e39d; --yellow:#ffd166; --red:#ff6b6b;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{
@@ -25,80 +26,44 @@
       box-shadow:var(--shadow); margin-bottom:22px; overflow:hidden;
     }
     .hero-inner,.section-inner{padding:30px}
-    .eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:1.2px;font-size:12px;font-weight:700}
+    .eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:1.2px;font-size:12px;font-weight:800}
     h1{margin:8px 0 12px;font-size:56px;line-height:1;letter-spacing:-1.5px}
     h2{margin:0 0 8px;font-size:30px;letter-spacing:-.6px}
     h3{margin:0 0 10px;font-size:20px;letter-spacing:-.2px}
-    .gradient{
-      background:linear-gradient(90deg, var(--cyan), #7bb7ff 45%, #b07cff);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-    }
+    .gradient{background:linear-gradient(90deg, var(--cyan), #7bb7ff 45%, #b07cff);-webkit-background-clip:text;background-clip:text;color:transparent}
     p{margin:0;color:#cfdbf3}.subtle{color:var(--muted)}
-    .hero-grid,.three,.two,.metrics{display:grid;gap:16px}
-    .hero-grid{grid-template-columns:1.2fr .8fr;margin-top:20px}
-    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .metrics{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:16px}
-    .card{
-      padding:18px;border-radius:18px;border:1px solid rgba(57,213,255,.12);
-      background:linear-gradient(180deg, rgba(16,32,58,.82), rgba(13,26,45,.82));
-    }
-    .mini{
-      padding:16px;border-radius:16px;border:1px solid rgba(57,213,255,.12);background:rgba(7,17,31,.52);
-    }
-    .mini .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
-    .mini .v{margin-top:8px;font-size:30px;font-weight:800}
-    .green{color:var(--green)}
-    table{
-      width:100%;border-collapse:collapse;border-radius:18px;overflow:hidden;
-      border:1px solid rgba(57,213,255,.12);margin-top:16px;
-    }
-    th,td{padding:14px 16px;border-bottom:1px solid rgba(57,213,255,.08);text-align:left;font-size:14px}
-    th{color:var(--cyan);background:rgba(12,23,40,.92);font-weight:700}
-    tr:nth-child(even) td{background:rgba(255,255,255,.01)}
-    ul{margin:0;padding-left:18px} li{margin:8px 0;color:#dbe7fb}
-    .fee-box{
-      padding:24px;border-radius:22px;border:1px solid rgba(39,227,157,.22);
-      box-shadow:0 0 0 1px rgba(39,227,157,.12);background:linear-gradient(180deg, rgba(8,24,26,.88), rgba(10,21,37,.94));
-    }
-    .fee-box .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--cyan);font-weight:700}
-    .fee-box .amount{font-size:64px;line-height:1;font-weight:900;margin:10px 0 12px}
-    .note{margin-top:12px;color:var(--muted);font-size:13px}
+    .hero-grid,.three,.two,.metrics,.split{display:grid;gap:16px}
+    .hero-grid{grid-template-columns:1.1fr .9fr;margin-top:20px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .metrics{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:16px}.split{grid-template-columns:1fr 1fr}
+    .card{padding:18px;border-radius:18px;border:1px solid rgba(57,213,255,.12);background:linear-gradient(180deg, rgba(16,32,58,.82), rgba(13,26,45,.82))}
+    .mini{padding:16px;border-radius:16px;border:1px solid rgba(57,213,255,.12);background:rgba(7,17,31,.52)}
+    .mini .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}.mini .v{margin-top:8px;font-size:30px;font-weight:900}.green{color:var(--green)}.yellow{color:var(--yellow)}.cyan{color:var(--cyan)}
+    table{width:100%;border-collapse:collapse;border-radius:18px;overflow:hidden;border:1px solid rgba(57,213,255,.12);margin-top:16px}
+    th,td{padding:14px 16px;border-bottom:1px solid rgba(57,213,255,.08);text-align:left;font-size:14px;vertical-align:top}
+    th{color:var(--cyan);background:rgba(12,23,40,.92);font-weight:800}tr:nth-child(even) td{background:rgba(255,255,255,.01)}
+    ul{margin:0;padding-left:18px}li{margin:8px 0;color:#dbe7fb}
+    .fee-box{padding:24px;border-radius:22px;border:1px solid rgba(39,227,157,.22);box-shadow:0 0 0 1px rgba(39,227,157,.12);background:linear-gradient(180deg, rgba(8,24,26,.88), rgba(10,21,37,.94))}
+    .fee-box .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--cyan);font-weight:800}.fee-box .amount{font-size:64px;line-height:1;font-weight:950;margin:10px 0 12px}.note{margin-top:12px;color:var(--muted);font-size:13px}
+    .callout{border-left:4px solid var(--yellow);padding:16px 18px;background:rgba(255,209,102,.08);border-radius:14px;margin-top:16px}.safe{border-left-color:var(--green);background:rgba(39,227,157,.07)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(57,213,255,.18);border-radius:999px;background:rgba(57,213,255,.06);color:#dff7ff;font-size:13px;font-weight:750;margin:6px 6px 0 0}
     .footer{padding:18px 20px 34px;color:var(--muted);font-size:13px}
-    @media (max-width:1100px){
-      .hero-grid,.three,.two,.metrics{grid-template-columns:1fr}
-      h1{font-size:42px}.fee-box .amount{font-size:48px}
-    }
+    @media(max-width:1100px){.hero-grid,.three,.two,.metrics,.split{grid-template-columns:1fr}h1{font-size:42px}.fee-box .amount{font-size:48px}.container{padding:16px}.hero-inner,.section-inner{padding:22px}th,td{font-size:13px;padding:12px}}
   </style>
 </head>
 <body>
   <main class="container">
     <section class="hero">
       <div class="hero-inner">
-        <div class="eyebrow">Project investment</div>
-        <h1><span class="gradient">Custom AI Options Terminal</span><br>Full MVP Build Investment</h1>
+        <div class="eyebrow">Hybrid project offer</div>
+        <h1><span class="gradient">Custom AI Options Terminal</span><br>Build Fee + Subscription-Aligned Payback</h1>
         <p>
-          This project is the design and build of a custom AI options trading terminal built for speed, clarity, and daily decision-making.
-          It includes the core product architecture, the full MVP screen system, real-time terminal logic, and a launch-ready foundation for a premium subscription platform.
+          This proposal restructures the original low-estimate $47,500 custom MVP build into a lower-friction hybrid payment model: a reduced upfront payment, a monthly base rate, and a limited subscription revenue share that ends once the agreed cap is reached.
         </p>
-
         <div class="metrics">
-          <div class="mini">
-            <div class="k">Fixed project fee</div>
-            <div class="v">$47,500</div>
-          </div>
-          <div class="mini">
-            <div class="k">Build type</div>
-            <div class="v">Custom MVP</div>
-          </div>
-          <div class="mini">
-            <div class="k">Primary outcome</div>
-            <div class="v green">Launch-ready</div>
-          </div>
-          <div class="mini">
-            <div class="k">Product level</div>
-            <div class="v">Premium</div>
-          </div>
+          <div class="mini"><div class="k">Original low estimate</div><div class="v">$47,500</div></div>
+          <div class="mini"><div class="k">Upfront activation</div><div class="v green">$15,000</div></div>
+          <div class="mini"><div class="k">Monthly base</div><div class="v">$4,500</div></div>
+          <div class="mini"><div class="k">Total compensation cap</div><div class="v yellow">$52,500</div></div>
         </div>
       </div>
     </section>
@@ -107,24 +72,20 @@
       <div class="section-inner">
         <div class="hero-grid">
           <div class="fee-box">
-            <div class="label">Total investment</div>
-            <div class="amount green">$47,500</div>
+            <div class="label">Recommended hybrid structure</div>
+            <div class="amount green">$52,500 Cap</div>
             <p>
-              The investment covers the complete custom MVP build of the AI Options Terminal, from system architecture through interface implementation,
-              live-data-ready application structure, refinement, and final delivery.
+              The client pays $15,000 upfront, then $4,500 per month, plus 10% of gross subscription revenue until GORGO Company / KORVA Systems has received $52,500 total compensation for the initial MVP build.
             </p>
-            <div class="note">
-              This is a fixed project fee for the full build.
-            </div>
+            <div class="note">After the cap is paid, the revenue-share obligation ends. Ongoing support and operating expenses remain separate.</div>
           </div>
-
           <div class="card">
-            <h3>What makes this valuable</h3>
+            <h3>Why this structure works</h3>
             <ul>
-              <li>A specialized trading terminal designed around real operator use, not a generic dashboard template.</li>
-              <li>A full screen system built for structure, flow, timing, and execution rather than disconnected feature fragments.</li>
-              <li>A product foundation intended for a premium subscription business, with room to expand into replay, analytics, AI assistance, and deeper workflow tools.</li>
-              <li>A custom interface built to help the user recognize important levels and decisions faster, which is the core value of the platform.</li>
+              <li>Protects the original $47,500 project value while giving the client a reduced upfront commitment.</li>
+              <li>Adds only $5,000 above the original low estimate to account for deferred-payment risk.</li>
+              <li>Aligns part of compensation with subscription performance without making KORVA an unpaid technical cofounder.</li>
+              <li>Creates a clear end point: once $52,500 is paid, the subscription revenue share stops.</li>
             </ul>
           </div>
         </div>
@@ -133,41 +94,59 @@
 
     <section class="section">
       <div class="section-inner">
-        <h2>What is included in the project</h2>
-        <p class="subtle">This build includes the complete MVP product package rather than isolated design files or partial development work.</p>
-
+        <h2>Payment terms</h2>
+        <p class="subtle">This is the proposed payment schedule for the initial MVP build only.</p>
         <table>
-          <thead>
-            <tr>
-              <th>Included area</th>
-              <th>What is delivered</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Payment component</th><th>Amount / rate</th><th>When it applies</th><th>Purpose</th></tr></thead>
           <tbody>
-            <tr>
-              <td>Product architecture</td>
-              <td>Core system structure, feature planning, screen relationships, and app logic for a focused MVP build.</td>
-            </tr>
-            <tr>
-              <td>Full interface system</td>
-              <td>Custom terminal UI with a premium visual language designed specifically for options trading workflows.</td>
-            </tr>
-            <tr>
-              <td>MVP screen set</td>
-              <td>Terminal Core, Exposure Ladder, Flow Grid, Execution View, Timeline View, and Signal Lock.</td>
-            </tr>
-            <tr>
-              <td>Application buildout</td>
-              <td>Frontend terminal implementation and backend-ready structure for real-time data handling and product expansion.</td>
-            </tr>
-            <tr>
-              <td>Live-data-ready foundation</td>
-              <td>Production-minded application structure built to support the real-time nature of the product category.</td>
-            </tr>
-            <tr>
-              <td>Refinement and delivery</td>
-              <td>Testing, visual cleanup, final polish, and preparation for launch deployment.</td>
-            </tr>
+            <tr><td>Build activation payment</td><td><strong>$15,000</strong></td><td>Due at agreement signing</td><td>Starts product architecture, screen planning, interface design, and development setup.</td></tr>
+            <tr><td>Monthly base payment</td><td><strong>$4,500/month</strong></td><td>Begins 30 days after project commencement</td><td>Maintains active development capacity while the project is being built and refined.</td></tr>
+            <tr><td>Subscription revenue share</td><td><strong>10% of gross subscription revenue</strong></td><td>Applies to paid subscriptions generated by the app</td><td>Allows the client to defer part of the project cost while sharing upside until the cap is reached.</td></tr>
+            <tr><td>Total compensation cap</td><td><strong>$52,500 total received</strong></td><td>Monthly base + revenue share continue until this amount is paid</td><td>Creates a clear finish line for the initial MVP build compensation.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout safe"><strong>Simple explanation:</strong> this is not an open-ended royalty. It is a capped payback structure for the initial build.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>Subscription revenue share definition</h2>
+        <p class="subtle">Revenue share should be calculated from gross subscription revenue so it is simple to audit and not dependent on internal expense decisions.</p>
+        <div class="two" style="margin-top:16px">
+          <div class="card">
+            <h3>Included revenue</h3>
+            <ul>
+              <li>Monthly subscriptions</li>
+              <li>Annual subscriptions</li>
+              <li>Premium upgrades and higher-tier plans</li>
+              <li>Discounted or promotional subscriptions</li>
+              <li>Bundled access when the app is part of a paid trading product</li>
+              <li>Any recurring access fee connected to the platform</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>When revenue share ends</h3>
+            <p>Revenue share ends automatically once the combined total of the upfront payment, monthly base payments, and revenue-share payments reaches $52,500.</p>
+            <div class="callout"><strong>Important:</strong> after the cap is reached, new feature work, maintenance, data costs, infrastructure, and support are not included unless a separate agreement is signed.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>What is included in the initial MVP build</h2>
+        <p class="subtle">The hybrid offer covers the same core project value as the original proposal, but with a client-friendly payment structure.</p>
+        <table>
+          <thead><tr><th>Included area</th><th>What is delivered</th></tr></thead>
+          <tbody>
+            <tr><td>Product architecture</td><td>Core system structure, MVP feature planning, screen relationships, user-flow logic, and build roadmap.</td></tr>
+            <tr><td>Custom interface system</td><td>Premium trading terminal UI designed for active day traders who need fast access to key metrics.</td></tr>
+            <tr><td>MVP screen set</td><td>Dashboard, login screen, Terminal Core, Exposure Ladder, Flow Grid, Execution View, Timeline View, Signal Lock, and supporting application screens as needed.</td></tr>
+            <tr><td>Frontend application build</td><td>Working web app interface, responsive layout, screen navigation, interactive structure, and trader-focused metric presentation.</td></tr>
+            <tr><td>Backend-ready foundation</td><td>Application structure prepared for authentication, user accounts, subscriptions, data connections, and future expansion.</td></tr>
+            <tr><td>Launch preparation</td><td>Testing pass, visual cleanup, implementation refinement, final delivery package, and deployment-ready handoff.</td></tr>
           </tbody>
         </table>
       </div>
@@ -175,53 +154,20 @@
 
     <section class="section">
       <div class="section-inner">
-        <h2>Value breakdown</h2>
-        <p class="subtle">This breakdown shows where the project value sits inside the full build.</p>
-
+        <h2>Build value breakdown</h2>
+        <p class="subtle">This shows how the $47,500 original project value maps across the work. The $52,500 cap includes a modest deferred-payment premium.</p>
         <table>
-          <thead>
-            <tr>
-              <th>Value block</th>
-              <th>Allocation</th>
-              <th>Included value</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Value block</th><th>Base value</th><th>Included value</th></tr></thead>
           <tbody>
-            <tr>
-              <td>Product architecture and planning</td>
-              <td>$7,500</td>
-              <td>System blueprint, MVP structure, logic planning, and overall product organization.</td>
-            </tr>
-            <tr>
-              <td>Interface and screen system design</td>
-              <td>$8,000</td>
-              <td>Custom visual system, user-flow design, storyboard direction, and trading-terminal interface logic.</td>
-            </tr>
-            <tr>
-              <td>Frontend terminal build</td>
-              <td>$12,500</td>
-              <td>Construction of the working terminal experience across the full MVP screen set.</td>
-            </tr>
-            <tr>
-              <td>Backend and live-data application structure</td>
-              <td>$11,000</td>
-              <td>API-ready application structure, streaming foundation, scoring pipeline framing, and real-time product support.</td>
-            </tr>
-            <tr>
-              <td>Testing, refinement, deployment, and launch prep</td>
-              <td>$5,500</td>
-              <td>Quality pass, implementation cleanup, final adjustments, and launch-ready preparation.</td>
-            </tr>
-            <tr>
-              <td>Project coordination and delivery overhead</td>
-              <td>$3,000</td>
-              <td>Decision support, revisions, file delivery, and production coordination throughout the build.</td>
-            </tr>
-            <tr>
-              <td><strong>Total fixed investment</strong></td>
-              <td><strong>$47,500</strong></td>
-              <td><strong>Complete MVP build and delivery package.</strong></td>
-            </tr>
+            <tr><td>Product architecture and planning</td><td>$7,500</td><td>System blueprint, MVP scope, screen logic, and product organization.</td></tr>
+            <tr><td>Interface and screen system design</td><td>$8,000</td><td>Custom visual system, workflow design, and trading-terminal user experience.</td></tr>
+            <tr><td>Frontend terminal build</td><td>$12,500</td><td>Construction of the working MVP screen set and app experience.</td></tr>
+            <tr><td>Backend and live-data-ready structure</td><td>$11,000</td><td>API-ready structure, account/subscription readiness, and real-time product framing.</td></tr>
+            <tr><td>Testing, refinement, deployment prep</td><td>$5,500</td><td>Quality pass, cleanup, final polish, and launch handoff.</td></tr>
+            <tr><td>Project coordination and delivery overhead</td><td>$3,000</td><td>Decision support, revisions, production coordination, and delivery management.</td></tr>
+            <tr><td><strong>Original low-estimate project value</strong></td><td><strong>$47,500</strong></td><td><strong>Complete custom MVP build package.</strong></td></tr>
+            <tr><td><strong>Deferred-payment premium</strong></td><td><strong>$5,000</strong></td><td><strong>Added because part of the compensation is delayed and tied to subscription performance.</strong></td></tr>
+            <tr><td><strong>Hybrid compensation cap</strong></td><td><strong>$52,500</strong></td><td><strong>Total amount due before revenue share terminates.</strong></td></tr>
           </tbody>
         </table>
       </div>
@@ -229,83 +175,61 @@
 
     <section class="section">
       <div class="section-inner">
-        <h2>What the finished build provides</h2>
-        <div class="three">
-          <div class="card">
-            <h3>Daily-use trading environment</h3>
-            <ul>
-              <li>A custom terminal built for active use, not occasional browsing.</li>
-              <li>Fast recognition of structure, flow, timing, and trade setup quality.</li>
-              <li>A screen system that reduces cognitive clutter and improves decision speed.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Premium product foundation</h3>
-            <ul>
-              <li>A platform suitable for premium monthly subscription pricing.</li>
-              <li>A differentiated interface that can support real product positioning in-market.</li>
-              <li>A build that supports future additions without replacing the core system.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Growth-ready direction</h3>
-            <ul>
-              <li>Clear path into replay, analytics, AI command features, and journaling.</li>
-              <li>A technical and visual foundation designed for later expansion.</li>
-              <li>A real product asset rather than a disposable prototype.</li>
-            </ul>
-          </div>
-        </div>
+        <h2>Actual project tools and operating costs</h2>
+        <p class="subtle">These costs are shown separately so the client understands the difference between build compensation and the actual operating stack required to run the product.</p>
+        <div class="callout"><strong>Cost rule:</strong> third-party tools, data subscriptions, hosting, infrastructure, compliance, payment processing, and API usage are client-paid operating expenses. They are not included in the $52,500 compensation cap unless specifically agreed in writing.</div>
+        <table>
+          <thead><tr><th>Cost category</th><th>How it will be handled</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Market data / trading data APIs</td><td>Client pays actual provider costs directly or reimburses at cost.</td><td>Trading apps often require paid data access, rate limits, commercial licensing, or real-time feed upgrades.</td></tr>
+            <tr><td>Hosting and database</td><td>Client-owned account preferred. Costs billed directly to client.</td><td>Keeps the app, database, and infrastructure under the client’s control.</td></tr>
+            <tr><td>Authentication and user accounts</td><td>Client pays any platform-level account/auth charges if usage exceeds free or included tiers.</td><td>Needed for subscriptions, protected access, customer accounts, and role-based features.</td></tr>
+            <tr><td>Payment processing</td><td>Stripe, Square, or equivalent processing fees are client expenses.</td><td>Subscription payments create processor fees that should not reduce the development compensation cap.</td></tr>
+            <tr><td>AI / automation APIs</td><td>Usage-based AI costs are billed to the client or paid through client-owned API accounts.</td><td>AI costs can increase with user volume, automation depth, and request frequency.</td></tr>
+            <tr><td>Email, notifications, and analytics</td><td>Client pays vendor costs if used.</td><td>Needed for onboarding emails, alerts, product analytics, and subscription operations.</td></tr>
+            <tr><td>Legal, compliance, disclosures</td><td>Client is responsible for professional review and required language.</td><td>Trading-related products may need clear disclaimers, terms, risk language, and regulatory review.</td></tr>
+            <tr><td>Post-launch support</td><td>Handled under a separate monthly support agreement.</td><td>The MVP build cap covers build delivery, not indefinite maintenance or support.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout safe"><strong>Client-friendly wording:</strong> final tool costs will be confirmed after vendor selection. No third-party subscription or data-feed cost will be represented as included unless it is expressly listed in the signed scope.</div>
       </div>
     </section>
 
     <section class="section">
       <div class="section-inner">
-        <h2>Payment structure</h2>
-        <div class="three">
-          <div class="card">
-            <h3>Deposit</h3>
-            <p style="font-size:30px;font-weight:800;margin:8px 0 6px">$19,000</p>
-            <p class="subtle">To begin architecture, design, and development.</p>
-          </div>
-          <div class="card">
-            <h3>Build milestone</h3>
-            <p style="font-size:30px;font-weight:800;margin:8px 0 6px">$14,250</p>
-            <p class="subtle">At major interface completion and core build milestone.</p>
-          </div>
-          <div class="card">
-            <h3>Final delivery</h3>
-            <p style="font-size:30px;font-weight:800;margin:8px 0 6px">$14,250</p>
-            <p class="subtle">At final delivery, polish, and launch-ready handoff.</p>
-          </div>
-        </div>
+        <h2>Illustrative payback examples</h2>
+        <p class="subtle">These examples show how the cap is reached. They are not revenue projections.</p>
+        <table>
+          <thead><tr><th>Scenario</th><th>Monthly subscription revenue</th><th>10% revenue-share payment</th><th>Monthly base</th><th>Total monthly payback</th></tr></thead>
+          <tbody>
+            <tr><td>Early traction</td><td>$5,000</td><td>$500</td><td>$4,500</td><td>$5,000/month</td></tr>
+            <tr><td>Growing user base</td><td>$15,000</td><td>$1,500</td><td>$4,500</td><td>$6,000/month</td></tr>
+            <tr><td>Stronger subscription adoption</td><td>$30,000</td><td>$3,000</td><td>$4,500</td><td>$7,500/month</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <section class="section">
       <div class="section-inner">
-        <h2>Project summary</h2>
-        <div class="two">
-          <div class="card">
-            <h3>Included in this build</h3>
-            <p>
-              A complete custom MVP trading platform with the full core screen set, interface logic,
-              live-data-ready structure, and production setup needed to make the system usable as a premium trading tool.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Delivered result</h3>
-            <p>
-              A specialized trading system with a differentiated interface and a clear path from concept to deployable product,
-              built to support a premium software offering rather than a generic web application.
-            </p>
-          </div>
+        <h2>Plain-English agreement summary</h2>
+        <div class="three">
+          <div class="card"><h3>Client advantage</h3><p>The client does not have to pay the full $47,500 upfront and can use subscription revenue to help complete the project payback.</p></div>
+          <div class="card"><h3>Developer protection</h3><p>KORVA/GORGO receives a meaningful activation payment, a monthly base, and a defined revenue-share until the capped compensation amount is satisfied.</p></div>
+          <div class="card"><h3>Clear endpoint</h3><p>The revenue share is capped and terminates at $52,500 total received, preventing confusion about long-term royalties.</p></div>
+        </div>
+        <div style="margin-top:18px">
+          <span class="pill">$15,000 upfront</span>
+          <span class="pill">$4,500/month</span>
+          <span class="pill">10% gross subscription revenue</span>
+          <span class="pill">Stops at $52,500 paid</span>
+          <span class="pill">Tools billed separately</span>
         </div>
       </div>
     </section>
 
     <div class="footer">
-      This page is centered on what is being built, what is included, and the value contained in the finished project.
+      This page presents the hybrid commercial structure for the AI Options Terminal MVP. It separates development compensation from client-owned operating expenses so the project cost, subscription revenue share, and third-party tool obligations remain clear.
     </div>
   </main>
 </body>
